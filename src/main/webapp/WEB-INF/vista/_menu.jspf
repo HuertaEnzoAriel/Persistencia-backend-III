@@ -1,0 +1,23 @@
+<nav class="menu">
+    <a class="marca" href="${pageContext.request.contextPath}/index.jsp">Sistema Universidad</a>
+    <div class="drop">
+        <span>Facultades &#9662;</span>
+        <ul>
+            <c:forEach var="f" items="${applicationScope.facultades}">
+                <li><a href="${pageContext.request.contextPath}/Facultad?codigoFacu=${f.idfacultad}">${f.nombre}</a></li>
+            </c:forEach>
+            <c:if test="${empty applicationScope.facultades}"><li class="vacio">No hay facultades cargadas</li></c:if>
+        </ul>
+    </div>
+    <div class="drop">
+        <span>Consultas &#9662;</span>
+        <ul>
+            <li><a href="${pageContext.request.contextPath}/consulta/julio">Mesas de julio</a></li>
+            <li><a href="${pageContext.request.contextPath}/consulta/sinexamenes">Alumnos sin exámenes del año</a></li>
+            <li><a href="${pageContext.request.contextPath}/consulta/docentes">Docentes con más de 2 materias</a></li>
+        </ul>
+    </div>
+    <a href="${pageContext.request.contextPath}/carrera/listar">Carreras</a>
+    <a href="${pageContext.request.contextPath}/alumno/listar">Alumnos</a>
+    <a href="${pageContext.request.contextPath}/materia/listar">Materias</a>
+</nav>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE resources PUBLIC "-//GlassFish.org//DTD GlassFish Application Server 3.1 Resource Definitions//EN" "http://glassfish.org/dtds/glassfish-resources_1_5.dtd">
+<resources>
+    <jdbc-connection-pool name="universidadPool"
+        res-type="javax.sql.DataSource"
+        datasource-classname="com.mysql.cj.jdbc.MysqlDataSource">
+        <property name="URL" value="jdbc:mysql://localhost:3306/universidad?useUnicode=true&amp;characterEncoding=UTF-8"/>
+        <property name="User" value="root"/>
+        <property name="Password" value="CAMBIAR_PASSWORD"/>
+        <property name="useSSL" value="false"/>
+        <property name="allowPublicKeyRetrieval" value="true"/>
+    </jdbc-connection-pool>
+    <jdbc-resource enabled="true" jndi-name="jdbc/universidad"
+        object-type="user" pool-name="universidadPool"/>
+</resources>
