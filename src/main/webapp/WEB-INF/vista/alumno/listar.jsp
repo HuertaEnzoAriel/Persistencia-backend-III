@@ -16,11 +16,12 @@
         <a class="btn verde" href="${pageContext.request.contextPath}/alumno/nuevo">+ Nuevo alumno</a>
     </div>
     <table>
-        <tr><th>ID</th><th>Nombre</th><th>Registro</th><th>Carrera</th><th></th></tr>
+        <tr><th>ID</th><th>Nombre</th><th>Registro</th><th>Carrera</th><th>Facultad</th><th></th></tr>
         <c:forEach items="${lista}" var="x">
             <tr>
                 <td>${x.idalumno}</td>
                 <td>${x.nombre}</td><td>${x.registro}</td><td><span class="chip">${x.carreraIdcarrera.nombre}</span></td>
+                <td>${x.carreraIdcarrera.facultadIdfacultad.nombre}</td>
                 <td class="acciones">
                     <a class="btn chico" href="${pageContext.request.contextPath}/alumno/editar?id=${x.idalumno}">Editar</a>
                     <form action="${pageContext.request.contextPath}/alumno/eliminar" method="post"
@@ -31,6 +32,6 @@
                 </td>
             </tr>
         </c:forEach>
-        <c:if test="${empty lista}"><tr><td colspan="5" class="vacio-msg">No hay registros todavía.</td></tr></c:if>
+        <c:if test="${empty lista}"><tr><td colspan="6" class="vacio-msg">No hay registros todavía.</td></tr></c:if>
     </table>
 </main></body></html>
